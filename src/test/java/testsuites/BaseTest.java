@@ -1,20 +1,18 @@
 package testsuites;
 
-import io.restassured.RestAssured;
-import org.testng.annotations.BeforeSuite;
-import util.PropertiesUtil;
+import utils.PropertiesUtil;
+import utils.RestUtil;
 
 /**
  * Created by john.zhou on 2017/6/16.
  */
-public class BaseTest {
+public abstract class BaseTest {
 
     static {
         PropertiesUtil.readProperties("env.properties");
+        RestUtil.setBaseURI(PropertiesUtil.getProperty("baseURI"));
+        RestUtil.setLogAll();
     }
-    @BeforeSuite
-    public void init() {
-        RestAssured.baseURI = PropertiesUtil.getProperty("baseURI");
-    }
+
 
 }

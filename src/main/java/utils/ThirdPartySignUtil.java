@@ -1,4 +1,4 @@
-package util;
+package utils;
 
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
@@ -18,15 +18,14 @@ public class ThirdPartySignUtil {
     public static final String CHARSET_UTF8 = "UTF-8";
 
 
-    public static Map<String, String> sign(String mobile) throws IOException {
+    public static String sign(String mobile) throws IOException {
         String timestamp = String.valueOf(System.currentTimeMillis());
         Map<String, String> hashMap = new HashMap<String, String>();
         hashMap.put("company_name", COMPANY_NAME);
         hashMap.put("mobile", mobile);
         hashMap.put("timestamp", timestamp);
         String signRequest = signRequest(hashMap, null, SECRET);
-        hashMap.put("sign", signRequest);
-        return hashMap;
+        return "timestamp=" + timestamp + "&" + "sign=" + signRequest;
     }
 
     private static String signRequest(Map<String, String> params, String body, String secret) throws IOException {
