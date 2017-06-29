@@ -19,9 +19,9 @@ import static io.restassured.RestAssured.*;
  */
 public class RestUtil {
 
-    private static RequestSpecification spec;
     private static String path;
     private static RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+    private static RequestSpecification spec = requestSpecBuilder.build();
 
 
     public static void setBaseURI(String baseURI) {
@@ -58,10 +58,6 @@ public class RestUtil {
         requestSpecBuilder.addHeaders(headers);
     }
 
-    public static void build() {
-        spec = requestSpecBuilder.build();
-    }
-
 
     public static void createQueryPath(String searchTerm, String jsonPathTerm, String param, String paramValue) {
         path = searchTerm + "/" + jsonPathTerm + "?" + param + "=" + paramValue;
@@ -77,7 +73,6 @@ public class RestUtil {
 
 
     public static Response postResponse() {
-
         return null;
     }
 

@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.welab.qa</groupId>
-    <artifactId>com.welab.qa</artifactId>
+    <artifactId>ltest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <rest.version>3.0.3</rest.version>
         <jackson.version>2.8.8</jackson.version>
         <testng.version>6.11</testng.version>
+        <mybatis.version>3.4.1</mybatis.version>
     </properties>
 
     <dependencies>
@@ -50,12 +51,19 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <resources>
             <resource>
-                <directory>src/main/resources/${profiles.active}</directory>
+                <directory>src/main/resources/env/${profiles.active}</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
@@ -83,8 +91,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
+                    <basedir>src/main/resources</basedir>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng_shd.xml</suiteXmlFile>
+                        <!--<suiteXmlFile>shd.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

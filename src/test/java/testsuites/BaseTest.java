@@ -10,7 +10,8 @@ public abstract class BaseTest {
 
     static {
         PropertiesUtil.readProperties("env.properties");
-        RestUtil.setBaseURI(PropertiesUtil.getProperty("baseURI"));
+//        RestUtil.setBaseURI(PropertiesUtil.getProperty("baseURI"));
+        RestUtil.setBaseURI("http://119.75.217.109/");
         RestUtil.setLogAll();
     }
 

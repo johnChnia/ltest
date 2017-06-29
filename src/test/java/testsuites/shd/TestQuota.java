@@ -11,12 +11,13 @@ public class TestQuota extends ShdBaseTest {
 
     @BeforeClass
     public void setUp() {
-        RestUtil.setBasePath("applications/api/v1/user/quota");
+//        RestUtil.setBasePath("applications/api/v1/user/quota");
     }
 
     @Test
     public void testxx() {
-        System.out.println("testxx");
+        System.out.println("shd");
+        RestUtil.getResponse();
     }
 
 

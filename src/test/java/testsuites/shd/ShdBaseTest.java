@@ -19,6 +19,5 @@ public class ShdBaseTest extends BaseTest {
         //配置shd请求头-读取配置文件，填充bean
 
         RestUtil.setHeaders(shdHeader);
-
     }
 }
