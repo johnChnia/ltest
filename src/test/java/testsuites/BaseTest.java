@@ -1,5 +1,6 @@
 package testsuites;
 
+import common.Login;
 import utils.PropertiesUtil;
 import utils.RestUtil;
 
@@ -13,6 +14,8 @@ public abstract class BaseTest {
 //        RestUtil.setBaseURI(PropertiesUtil.getProperty("baseURI"));
         RestUtil.setBaseURI("http://119.75.217.109/");
         RestUtil.setLogAll();
+
+        Login.logIn();
     }
 
 
